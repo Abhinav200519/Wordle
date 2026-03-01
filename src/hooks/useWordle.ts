@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { isValidWord, fetchRandomWord } from "@/lib/words";
+import { checkWordValid, fetchRandomWord } from "@/lib/words";
 
 export type LetterState = "correct" | "present" | "absent" | "empty" | "tbd";
 
@@ -73,7 +73,7 @@ export function useWordle() {
     [solution]
   );
 
-  const submitGuess = useCallback(() => {
+  const submitGuess = useCallback(async () => {
     if (currentGuess.length !== 5) {
       setShakeRow(currentRow);
       showMessage("Not enough letters");
@@ -81,7 +81,8 @@ export function useWordle() {
       return;
     }
 
-    if (!isValidWord(currentGuess.toLowerCase())) {
+    const valid = await checkWordValid(currentGuess);
+    if (!valid) {
       setShakeRow(currentRow);
       showMessage("Not in word list");
       setTimeout(() => setShakeRow(-1), 500);

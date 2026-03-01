@@ -86,7 +86,21 @@ const VALID_WORDS = new Set([
 ]);
 
 export function isValidWord(word: string): boolean {
-  return VALID_WORDS.has(word.toLowerCase());
+  return VALID_WORDS.has(word.toLowerCase()) || EXTRA_VALID_CACHE.has(word.toLowerCase());
+}
+
+const EXTRA_VALID_CACHE = new Set<string>();
+
+export async function checkWordValid(word: string): Promise<boolean> {
+  if (VALID_WORDS.has(word.toLowerCase()) || EXTRA_VALID_CACHE.has(word.toLowerCase())) return true;
+  try {
+    const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word.toLowerCase()}`);
+    if (res.ok) {
+      EXTRA_VALID_CACHE.add(word.toLowerCase());
+      return true;
+    }
+  } catch {}
+  return false;
 }
 
 export async function fetchRandomWord(): Promise<string> {
