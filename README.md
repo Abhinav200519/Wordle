@@ -1,73 +1,101 @@
-# Welcome to your Lovable project
 
-## Project info
+---
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+# Wordle Clone
 
-## How can I edit this code?
+A simple and interactive word-guessing game inspired by **Wordle**.
+The player has six attempts to guess a hidden five-letter word, with color hints provided after each guess to guide the next attempt.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## Project Overview
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+This project recreates the core gameplay of Wordle to practice frontend development, game logic, and user interaction.
 
-Changes made via Lovable will be committed automatically to this repo.
+After each guess:
 
-**Use your preferred IDE**
+* **Green (🟩)** – Correct letter in the correct position
+* **Yellow (🟨)** – Correct letter but in the wrong position
+* **Gray (⬜)** – Letter not in the word
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+The goal is to guess the word within six attempts.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Features
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+* 5-letter word guessing system
+* Maximum of 6 attempts per game
+* Real-time input validation
+* Color-coded feedback for each guess
+* Keyboard support
+* Win and loss detection
+* Restart/New Game option
+* Responsive design for desktop and mobile
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Tech Stack
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+* **HTML** – Structure
+* **CSS** – Styling and layout
+* **JavaScript** – Game logic and interactivity
+
+*(Update this section if you used React, Tailwind, or any framework.)*
+
+---
+
+## Folder Structure
+
+```
+wordle-clone/
+│
+├── index.html
+├── style.css
+├── script.js
+├── words.js        # Word list (if used)
+└── README.md
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## How to Run Locally
 
-**Use GitHub Codespaces**
+1. Clone the repository
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+git clone https://github.com/your-username/wordle-clone.git
+```
 
-## What technologies are used for this project?
+2. Navigate to the project folder
 
-This project is built with:
+```
+cd wordle-clone
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+3. Open the project
 
-## How can I deploy this project?
+* Double-click **index.html**
+  or
+* Open it using Live Server (recommended for development)
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## How to Play
 
-Yes, you can!
+1. Enter a valid 5-letter word
+2. Press **Enter** to submit
+3. Check the color feedback
+4. Use the hints to improve your next guess
+5. Guess the word within 6 tries to win
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Future Improvements
+
+* Daily challenge mode
+* Dark mode
+* Animations and sound effects
+* Online leaderboard
+* Difficulty levels (4–7 letter words)
+* Word validation using a dictionary API
